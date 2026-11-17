@@ -6,6 +6,29 @@ document.querySelectorAll(".no").forEach((button) => {
 });
 
 (() => {
+  const scene = document.querySelector(".scene");
+  const pageName = window.location.pathname.split("/").pop().toLowerCase();
+  const stickerByPage = {
+    "question.html": "sticker-01.svg",
+    "birthday.html": "sticker-02.svg",
+    "memory-01.html": "sticker-03.svg",
+    "memory-02.html": "sticker-04.svg",
+    "memory-03.html": "sticker-01.svg",
+    "letter.html": "sticker-02.svg"
+  };
+  const stickerFile = stickerByPage[pageName];
+
+  if (!scene || !stickerFile) return;
+
+  const sticker = document.createElement("img");
+  sticker.className = "page-sticker";
+  sticker.src = "stickers/" + stickerFile;
+  sticker.alt = "";
+  sticker.setAttribute("aria-hidden", "true");
+  scene.append(sticker);
+})();
+
+(() => {
   const positionKey = "birthdayMusicPosition";
   const music = new Audio("background-music.mp3");
   music.autoplay = true;

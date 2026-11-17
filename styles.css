@@ -57,6 +57,23 @@
     }
     .page-back:hover { transform: translateY(-2px); box-shadow: 0 4px 0 var(--pink-dark); }
     .scene.is-intro .page-back { display: inline-flex; }
+    .page-sticker {
+      position: absolute;
+      z-index: 8;
+      top: clamp(54px, 8vh, 78px);
+      right: clamp(2px, 1vw, 10px);
+      width: clamp(48px, 13vw, 68px);
+      height: auto;
+      pointer-events: none;
+      filter: drop-shadow(0 3px 5px rgba(48, 34, 43, .2));
+      transform: rotate(5deg);
+    }
+    .scene.is-birthday .page-sticker,
+    .scene.is-letter .page-sticker {
+      top: clamp(10px, 2vh, 20px);
+      right: clamp(10px, 3vw, 20px);
+    }
+    .scene.is-memory .page-sticker { right: 2px; }
 
     .eyebrow,
     .hint {
